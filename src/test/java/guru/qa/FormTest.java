@@ -28,6 +28,6 @@ public class FormTest {
         $(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("file.txt");
         $("#currentAddress").setValue("Test st., 6");
-        $(byText("Select State")).click();
+        $("#submit").click();
         }
 }
