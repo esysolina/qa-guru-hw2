@@ -21,15 +21,15 @@ public class FormTest extends TestBase {
         registrationPage.openPage()
                 .typeFirstName(firstName)
                 .typeLastName(lastName)
-                .typeUserEmail(userEmail);
-        $(byText("Female")).click();
-        registrationPage.typeUserNumber(userNumber)
+                .typeUserEmail(userEmail)
+                .selectGender()
+                .typeUserNumber(userNumber)
+                .typeSubject("a")
+                .selectSubject()
+                .selectHobbies()
+                .choosePicture("file.txt")
+                .typeCurrentAddress(currentAddress)
                 .calendarComponent.setDate("18", "April", "1990");
-        $("#subjectsInput").setValue("a");
-        $("#react-select-2-option-2").click();
-        $(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("file.txt");
-        registrationPage.typeCurrentAddress(currentAddress);
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();

@@ -17,7 +17,12 @@ public class RegistrationPage {
             userEmailInput = $("#userEmail"),
             userNumberInput = $("#userNumber"),
             resultsTable = $(".table"),
-            currentAddressInput = $("#currentAddress");
+            currentAddressInput = $("#currentAddress"),
+            genderSelect = $(byText("Female")),
+            subjectInput = $("#subjectsInput"),
+            subjectClicker = $("#react-select-2-option-2"),
+            hobbiesSelect = $(byText("Reading")),
+            pictureUploader = $("#uploadPicture");
 
     public CalendarComponent calendarComponent = new CalendarComponent();
 
@@ -54,6 +59,36 @@ public class RegistrationPage {
 
     public RegistrationPage typeCurrentAddress(String value) {
         currentAddressInput.setValue(value);
+
+        return this;
+    }
+
+    public RegistrationPage selectGender() {
+        genderSelect.click();
+
+        return this;
+    }
+
+    public RegistrationPage typeSubject(String value) {
+        subjectInput.setValue(value);
+
+        return this;
+    }
+
+    public RegistrationPage selectSubject() {
+        subjectClicker.click();
+
+        return this;
+    }
+
+    public RegistrationPage selectHobbies() {
+        hobbiesSelect.click();
+
+        return this;
+    }
+
+    public RegistrationPage choosePicture(String value) {
+        pictureUploader.uploadFromClasspath(value);
 
         return this;
     }
