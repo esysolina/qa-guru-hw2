@@ -29,11 +29,11 @@ public class FormTest extends TestBase {
                 .selectHobbies()
                 .choosePicture("file.txt")
                 .typeCurrentAddress(currentAddress)
+                .selectState()
+                .chooseCity("NCR")
+                .selectCity()
+                .chooseCity("Delhi")
                 .calendarComponent.setDate("18", "April", "1990");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
         registrationPage.checkResultsValue("Student Name", firstName + " " + lastName)

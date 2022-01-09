@@ -16,13 +16,16 @@ public class RegistrationPage {
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             userNumberInput = $("#userNumber"),
-            resultsTable = $(".table"),
             currentAddressInput = $("#currentAddress"),
-            genderSelect = $(byText("Female")),
+            genderSelector = $(byText("Female")),
             subjectInput = $("#subjectsInput"),
             subjectClicker = $("#react-select-2-option-2"),
-            hobbiesSelect = $(byText("Reading")),
-            pictureUploader = $("#uploadPicture");
+            hobbiesSelector = $(byText("Reading")),
+            pictureUploader = $("#uploadPicture"),
+            stateSelector = $("#state"),
+            cityWrapper = $("#stateCity-wrapper"),
+            citySelector = $("#city"),
+            resultsTable = $(".table");
 
     public CalendarComponent calendarComponent = new CalendarComponent();
 
@@ -64,7 +67,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage selectGender() {
-        genderSelect.click();
+        genderSelector.click();
 
         return this;
     }
@@ -82,13 +85,31 @@ public class RegistrationPage {
     }
 
     public RegistrationPage selectHobbies() {
-        hobbiesSelect.click();
+        hobbiesSelector.click();
 
         return this;
     }
 
     public RegistrationPage choosePicture(String value) {
         pictureUploader.uploadFromClasspath(value);
+
+        return this;
+    }
+
+    public RegistrationPage selectState() {
+        stateSelector.click();
+
+        return this;
+    }
+
+    public RegistrationPage chooseCity(String value) {
+        cityWrapper.$(byText(value)).click();
+
+        return this;
+    }
+
+    public RegistrationPage selectCity() {
+        citySelector.click();
 
         return this;
     }
