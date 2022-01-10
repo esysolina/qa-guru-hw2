@@ -9,43 +9,46 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.files.DownloadActions.click;
 import static guru.qa.tests.TestData.*;
 
 import com.github.javafaker.Faker;
 
+import java.util.Calendar;
+
 public class FormTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
 
     @Test
     void fillFormTest() {
         registrationPage.openPage()
-                .typeFirstName(firstName)
-                .typeLastName(lastName)
-                .typeUserEmail(userEmail)
+                .typeFirstName(testData.firstName)
+                .typeLastName(testData.lastName)
+                .typeUserEmail(testData.userEmail)
                 .selectGender()
-                .typeUserNumber(userNumber)
-                .typeSubject("a")
+                .typeUserNumber(testData.userNumber)
+                .selectDate("18", "April", "1990")
+                .typeSubject(testData.subject)
                 .selectSubject()
                 .selectHobbies()
-                .choosePicture("file.txt")
-                .typeCurrentAddress(currentAddress)
+                .choosePicture(testData.pictureName)
+                .typeCurrentAddress(testData.currentAddress)
                 .selectState()
-                .chooseCity("NCR")
+                .chooseCity(testData.firstCity)
                 .selectCity()
-                .chooseCity("Delhi")
-                .calendarComponent.setDate("18", "April", "1990");
-        $("#submit").click();
-
-        registrationPage.checkResultsValue("Student Name", firstName + " " + lastName)
-                .checkResultsValue("Student Email", userEmail)
+                .chooseCity(testData.secondCity)
+                .clickSubmitButton()
+                .checkResultsValue("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResultsValue("Student Email", testData.userEmail)
                 .checkResultsValue("Gender", "Female")
-                .checkResultsValue("Mobile", userNumber)
+                .checkResultsValue("Mobile", testData.userNumber)
                 .checkResultsValue("Date of Birth", "18 April,1990")
                 .checkResultsValue("Subjects", "Arts")
                 .checkResultsValue("Hobbies", "Reading")
-                .checkResultsValue("Picture", "file.txt")
-                .checkResultsValue("Address", currentAddress)
-                .checkResultsValue("State and City", "NCR Delhi");
-        $("#closeLargeModal").click();
+                .checkResultsValue("Picture", testData.pictureName)
+                .checkResultsValue("Address", testData.currentAddress)
+                .checkResultsValue("State and City", testData.firstCity + " " + testData.secondCity)
+                .clickCloseButton();
     }
 }

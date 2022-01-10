@@ -3,10 +3,14 @@ package guru.qa.tests;
 import com.github.javafaker.Faker;
 
 public class TestData {
-    static Faker faker = new Faker();
-    static String firstName = faker.name().firstName();
-    static String lastName = faker.name().lastName();
-    static String userEmail = faker.internet().emailAddress();
-    static String userNumber = faker.phoneNumber().subscriberNumber(10);
-    static String currentAddress = faker.address().fullAddress();
+    Faker faker = new Faker();
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String userEmail = faker.internet().emailAddress();
+    String userNumber = faker.phoneNumber().subscriberNumber(10);
+    String currentAddress = faker.address().fullAddress();
+    String subject = "a";
+    String pictureName = "file.txt";
+    String firstCity = "NCR";
+    String secondCity = "Delhi";
 }

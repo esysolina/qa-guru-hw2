@@ -25,6 +25,8 @@ public class RegistrationPage {
             stateSelector = $("#state"),
             cityWrapper = $("#stateCity-wrapper"),
             citySelector = $("#city"),
+            buttonSubmit = $("#submit"),
+            buttonClose = $("#closeLargeModal"),
             resultsTable = $(".table");
 
     public CalendarComponent calendarComponent = new CalendarComponent();
@@ -36,32 +38,38 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage typeFirstName(String value) {
-        firstNameInput.setValue(value);
+    public RegistrationPage typeFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
 
         return this;
     }
 
-    public RegistrationPage typeLastName(String value) {
-        lastNameInput.setValue(value);
+    public RegistrationPage typeLastName(String lastName) {
+        lastNameInput.setValue(lastName);
 
         return this;
     }
 
-    public RegistrationPage typeUserEmail(String value) {
-        userEmailInput.setValue(value);
+    public RegistrationPage typeUserEmail(String email) {
+        userEmailInput.setValue(email);
 
         return this;
     }
 
-    public RegistrationPage typeUserNumber(String value) {
-        userNumberInput.setValue(value);
+    public RegistrationPage typeUserNumber(String number) {
+        userNumberInput.setValue(number);
 
         return this;
     }
 
-    public RegistrationPage typeCurrentAddress(String value) {
-        currentAddressInput.setValue(value);
+    public RegistrationPage selectDate(String day,String  month,String  year) {
+        new CalendarComponent().setDate(day, month, year);
+
+        return this;
+    }
+
+    public RegistrationPage typeCurrentAddress(String address) {
+        currentAddressInput.setValue(address);
 
         return this;
     }
@@ -72,8 +80,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage typeSubject(String value) {
-        subjectInput.setValue(value);
+    public RegistrationPage typeSubject(String subject) {
+        subjectInput.setValue(subject);
 
         return this;
     }
@@ -90,8 +98,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage choosePicture(String value) {
-        pictureUploader.uploadFromClasspath(value);
+    public RegistrationPage choosePicture(String fileName) {
+        pictureUploader.uploadFromClasspath(fileName);
 
         return this;
     }
@@ -102,14 +110,26 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage chooseCity(String value) {
-        cityWrapper.$(byText(value)).click();
+    public RegistrationPage chooseCity(String city) {
+        cityWrapper.$(byText(city)).click();
 
         return this;
     }
 
     public RegistrationPage selectCity() {
         citySelector.click();
+
+        return this;
+    }
+
+    public RegistrationPage clickSubmitButton() {
+        buttonSubmit.click();
+
+        return this;
+    }
+
+    public RegistrationPage clickCloseButton() {
+        buttonClose.click();
 
         return this;
     }
