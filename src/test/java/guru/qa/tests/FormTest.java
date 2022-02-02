@@ -52,7 +52,7 @@ public class FormTest extends TestBase {
             registrationPage.selectHobbies();
         });
         step("Загружаем картинку", () ->{
-            registrationPage.choosePicture("file.txt");
+            registrationPage.choosePicture(testData.pictureName);
         });
         step("Вводим адрес", () ->{
             registrationPage.typeCurrentAddress(testData.currentAddress);
@@ -76,7 +76,7 @@ public class FormTest extends TestBase {
                     .checkResultsValue("Date of Birth", "18 April,1990")
                     .checkResultsValue("Subjects", "Arts")
                     .checkResultsValue("Hobbies", "Reading")
-                    .checkResultsValue("Picture", "file.txt")
+                    .checkResultsValue("Picture", testData.pictureName)
                     .checkResultsValue("Address", testData.currentAddress)
                     .checkResultsValue("State and City", testData.firstCity + " " + testData.secondCity);
         });
