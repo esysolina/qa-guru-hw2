@@ -51,9 +51,9 @@ public class FormTest extends TestBase {
         step("Выбираем хобби", () ->{
             registrationPage.selectHobbies();
         });
-        step("Загружаем картинку", () ->{
-            registrationPage.choosePicture(testData.pictureName);
-        });
+//        step("Загружаем картинку", () ->{
+//            registrationPage.choosePicture(testData.pictureName);
+//        });
         step("Вводим адрес", () ->{
             registrationPage.typeCurrentAddress(testData.currentAddress);
         });
